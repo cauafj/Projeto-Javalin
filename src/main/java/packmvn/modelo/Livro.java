@@ -9,15 +9,24 @@ public class Livro {
 	private int id;
 	private String nome, descricao, editora;
 	private Autor autor;
-	private Image imagem;
-	private ImageIcon ImgURL;
+	private Image image;
+	private ImageIcon imageIcon;
+	private String imageURL;
 
+	public Livro(String nome, String descricao, String editora, Autor autor, String imgURL) {
+		this.nome = nome;
+		this.descricao = descricao;
+		this.editora = editora;
+		this.autor = autor;
+		this.imageURL = imgURL;
+	}
+	
 	public Livro(String nome, String descricao, String editora, Autor autor, ImageIcon imgURL) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.editora = editora;
 		this.autor = autor;
-		this.imagem = imgURL.getImage();
+		this.image = imgURL.getImage();
 	}
 
 	public int getId() {
@@ -60,20 +69,30 @@ public class Livro {
 		this.autor = autor;
 	}
 
-	public Image getImagem() {
-		return imagem;
+	public Image getImage() {
+		return image;
 	}
 
-	public void setImagem(Image imagem) {
-		this.imagem = imagem;
+	public void setImage(Image image) {
+		this.image = image;
 	}
 
-	public ImageIcon getImgURL() {
-		return ImgURL;
+	public ImageIcon getImageIcon() {
+		return imageIcon;
 	}
 
-	public void setImgURL(ImageIcon imgURL) {
-		ImgURL = imgURL;
+	public void setImageIcon(ImageIcon imageIcon) {
+		this.imageIcon = imageIcon;
 	}
+
+	public String getImageURL() {
+		return imageURL;
+	}
+
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
+	
+	
 
 }
