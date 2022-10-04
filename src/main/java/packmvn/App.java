@@ -1,7 +1,6 @@
 package packmvn;
 
 import io.javalin.Javalin;
-
 /**
  * Hello world!
  *
@@ -11,4 +10,5 @@ public class App {
         Javalin app = Javalin.create().start(7070);
         app.get("/", ctx -> ctx.result("Hello World"));
     }
+
 }

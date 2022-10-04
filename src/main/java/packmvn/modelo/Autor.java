@@ -1,7 +1,6 @@
 package packmvn.modelo;
 
 public class Autor {
-
 	private int id;
 	private String nome, email;
 
