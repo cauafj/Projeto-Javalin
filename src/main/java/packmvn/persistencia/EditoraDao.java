@@ -15,8 +15,19 @@ public class EditoraDao implements DAO<Editora> {
 
     @Override
     public void inserir(Editora e) {
-        // TODO Auto-generated method stub
-        
+        String sql = "INSERT INTO Editora (nome, cnpj, email) VALUES (?,?,?)";
+
+        try (Connection con = Conexao.getConexao();
+                PreparedStatement pstm = con.prepareStatement(sql)) {
+            pstm.setString(1, e.getNome());
+            pstm.setString(2, e.getCnpj());
+            pstm.setString(3, e.getEmail());
+            pstm.executeUpdate();
+        } catch (SQLException exp) {
+            System.out.println(exp.getMessage());
+            exp.printStackTrace();
+        }
+    
     }
 
     @Override
@@ -70,6 +81,24 @@ public class EditoraDao implements DAO<Editora> {
             System.out.println(exp.getMessage());
             exp.printStackTrace();
         }
+    }
+
+    public Editora buscar(String cnpj) {
+        String sql = "SELECT nome, cnpj, email  FROM Editora  WHERE cnpj= ? ";
+        Editora edi = null;
+        try (Connection con = Conexao.getConexao();
+             PreparedStatement pstm = con.prepareStatement(sql);) {
+            pstm.setString(1,cnpj);
+            
+            ResultSet rs = pstm.executeQuery();
+            rs.next();
+            edi = new Editora(rs.getString("nome"),
+                       rs.getString("cnpj"),rs.getString("email"));
+        } catch (SQLException exp) {
+            System.out.println(exp.getMessage());
+            exp.printStackTrace();
+        }
+        return edi;
     }
    
 }

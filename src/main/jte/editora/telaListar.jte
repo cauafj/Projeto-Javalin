@@ -16,7 +16,7 @@
   
   
   
-  <h2>Lista de Clientes</h2>
+  <h2>Lista de Editoras</h2>
   <table class="table table-sm table-responsive-sm table-hover">
     <thead class="thead-dark">
         <tr>
@@ -37,9 +37,9 @@
       <td> ${ed.getCnpj()}  </td>
       <td> ${ed.getEmail()} </td>
       <td> 
-        <a href="detalhes.php?cod=" class="btn btn-sm btn-info"> 					
+        <a href="detalhes/${ed.getCnpj()}" class="btn btn-sm btn-info"> 					
           Detalhes?</a>
-        <a href="cadastro.php?cod=" class="btn btn-sm btn-warning">
+        <a href="cadastro/${ed.getCnpj()}" class="btn btn-sm btn-warning">
           Editar?</a>				
         <a href="/editora/excluir/${ed.getCnpj()}" class="btn btn-sm btn-danger"> 					
           Excluir?</a>
@@ -48,7 +48,7 @@
     @endfor
   </tbody>
 </table>
-<a href="cadastro.php" class="btn btn-secondary active" role="button" aria-pressed="true">Inserir Cliente</a>
+<a href="cadastro/" class="btn btn-secondary active" role="button" aria-pressed="true">Inserir Editora</a>
 
 
 
